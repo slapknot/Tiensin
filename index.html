@@ -29,7 +29,7 @@
             position: absolute;
             left: -23px;
             top: 44px;
-            bottom: 0; /* Adjusted to end with the item */
+            bottom: 0;
             width: 2px;
             background-color: #e5e7eb;
         }
@@ -51,21 +51,39 @@
             opacity: 0;
             transition: opacity 0.2s ease-in-out;
         }
-        .no-print {
-            /* This class will be hidden when printing */
+        
+        /* --- Print-specific Styles --- */
+        @page {
+            size: A4;
+            margin: 1.5cm;
         }
+
         @media print {
+            html, body {
+                width: 100%;
+                height: auto;
+                font-size: 10pt;
+                background-color: #ffffff;
+                /* Ensure colors and backgrounds print */
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+            .main-container {
+                max-width: none;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+                border: none;
+            }
             .page-break {
                 break-after: page;
-            }
-            body {
-                background-color: #ffffff;
             }
             .shadow-lg, .shadow-md, .shadow-sm {
                 box-shadow: none;
             }
             .bg-slate-50 {
-                background-color: #ffffff;
+                background-color: #f9fafb !important; /* Light grey for print */
                 border: 1px solid #e5e7eb;
             }
             [contenteditable="true"]:hover, [contenteditable="true"]:focus {
@@ -79,7 +97,7 @@
     </style>
 </head>
 <body class="text-gray-800">
-    <div class="max-w-4xl mx-auto my-8 p-4 sm:p-8 bg-white shadow-lg rounded-lg">
+    <div class="main-container max-w-4xl mx-auto my-8 p-4 sm:p-8 bg-white shadow-lg rounded-lg">
         <!-- Header Section -->
         <header class="flex flex-col md:flex-row items-center justify-between mb-10 border-b pb-6">
             <!-- Profile Picture -->
