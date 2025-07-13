@@ -135,11 +135,6 @@
                             <span id="contact-email" class="flex-grow" contenteditable="true">[Your Email]</span>
                             <button onclick="deleteItem(event)" class="delete-btn ml-2 text-red-500 no-print" title="Delete item"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
                         </li>
-                        <li class="flex items-center group deletable-item">
-                             <svg class="w-4 h-4 mr-2 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                            <span id="contact-linkedin" class="flex-grow" contenteditable="true">[LinkedIn Profile URL]</span>
-                            <button onclick="deleteItem(event)" class="delete-btn ml-2 text-red-500 no-print" title="Delete item"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
-                        </li>
                         <li class="flex items-start group deletable-item">
                             <svg class="w-4 h-4 mr-2 text-blue-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                             <span id="contact-address" class="flex-grow" contenteditable="true">[Your Address]</span>
@@ -159,6 +154,16 @@
                     </div>
                 </section>
 
+                <!-- Education -->
+                <section class="mb-3">
+                    <h3 class="text-base font-bold text-blue-600 border-b-2 border-blue-200 pb-1 mb-2">Education</h3>
+                    <div class="text-sm">
+                        <p id="edu-degree" class="font-bold" contenteditable="true">B.Eng. in Chemical Engineering</p>
+                        <p id="edu-university" class="text-gray-600" contenteditable="true">King Mongkut's University of Technology Thonburi</p>
+                        <p id="edu-period" class="text-gray-500 text-xs" contenteditable="true">2008 – 2012 | GPA: 3.07</p>
+                    </div>
+                </section>
+                
                 <!-- Skills -->
                 <section class="mb-3">
                     <h3 class="text-base font-bold text-blue-600 border-b-2 border-blue-200 pb-1 mb-2">Skills & Abilities</h3>
@@ -179,19 +184,13 @@
                             <h4 id="skill-safety-title" class="font-semibold" contenteditable="true">Safety & Quality</h4>
                             <p id="skill-safety-desc" class="text-gray-600" contenteditable="true">HAZOP, LOPA, PSM, Lean Six Sigma</p>
                         </div>
+                         <div>
+                            <h4 id="skill-general-title" class="font-semibold" contenteditable="true">General Software</h4>
+                            <p id="skill-general-desc" class="text-gray-600" contenteditable="true">MS Office Suite, SAP</p>
+                        </div>
                     </div>
                 </section>
 
-                <!-- Education -->
-                <section class="mb-3">
-                    <h3 class="text-base font-bold text-blue-600 border-b-2 border-blue-200 pb-1 mb-2">Education</h3>
-                    <div class="text-sm">
-                        <p id="edu-degree" class="font-bold" contenteditable="true">B.Eng. in Chemical Engineering</p>
-                        <p id="edu-university" class="text-gray-600" contenteditable="true">King Mongkut's University of Technology Thonburi</p>
-                        <p id="edu-period" class="text-gray-500 text-xs" contenteditable="true">2008 – 2012 | GPA: 3.07</p>
-                    </div>
-                </section>
-                
                 <!-- Training -->
                 <section class="mb-3">
                     <h3 class="text-base font-bold text-blue-600 border-b-2 border-blue-200 pb-1 mb-2">Training & Certifications</h3>
@@ -223,14 +222,17 @@
 
                 <!-- Work Experience -->
                 <section>
-                    <h3 class="text-lg font-bold text-blue-600 mb-2">Work Experience</h3>
+                    <div class="flex items-center mb-2">
+                        <h3 class="text-lg font-bold text-blue-600">Work Experience</h3>
+                        <button onclick="document.execCommand('bold')" class="ml-4 px-2 py-0.5 border rounded bg-gray-200 hover:bg-gray-300 text-sm font-bold no-print" title="Make selected text bold">B</button>
+                    </div>
                     <div id="work-experience-list" class="relative pl-6">
                         <!-- Timeline Item 1: Grouped Experience -->
                         <div class="timeline-item relative mb-3 deletable-item">
                             <div class="timeline-line"></div>
                             <div class="bg-slate-50 p-3 rounded-lg shadow-sm relative group">
                                 <h4 class="font-bold text-base" contenteditable="true">Bangkok Synthetics (NB Latex Plant)</h4>
-                                <p class="font-medium text-gray-500 text-xs mb-2" contenteditable="true">March 2016 – Present</p>
+                                <p class="font-medium text-blue-600 text-xs mb-2" contenteditable="true">March 2016 – Present</p>
                                 
                                 <!-- Position 1 -->
                                 <div class="mb-2">
@@ -267,10 +269,10 @@
                         <div class="timeline-item relative mb-3 deletable-item">
                             <div class="timeline-line"></div>
                             <div class="bg-slate-50 p-3 rounded-lg shadow-sm relative group">
-                                <p class="font-semibold text-gray-500 text-xs" contenteditable="true">October 2012 – February 2016</p>
-                                <h4 class="font-bold text-base mt-1" contenteditable="true">Process Engineer</h4>
-                                <p class="font-medium text-blue-600 text-sm mt-1 mb-2" contenteditable="true">Indorama Polyester PCL (PET Chips-Batch Plant)</p>
-                                <ul class="list-disc list-outside ml-4 space-y-px text-xs text-gray-600" contenteditable="true">
+                                <h4 class="font-bold text-base" contenteditable="true">Indorama Polyester PCL (PET Chips-Batch Plant)</h4>
+                                <p class="font-medium text-blue-600 text-xs mb-2" contenteditable="true">October 2012 – February 2016</p>
+                                <p class="font-semibold text-sm" contenteditable="true">Process Engineer</p>
+                                <ul class="list-disc list-outside ml-4 space-y-px text-xs text-gray-600 mt-1" contenteditable="true">
                                     <li>Analyzed and resolved quality non-conformity issues in emergency cases.</li>
                                     <li>Provided work instructions and standard operating conditions to employees.</li>
                                     <li>Managed process scheme and P&ID modifications for the batch plant.</li>
@@ -317,7 +319,7 @@
                 'name-h1', 'title-h2', 'contact-phone', 'contact-email', 'contact-linkedin', 'contact-address',
                 'personal-dob', 'personal-age', 'personal-nationality', 'personal-languages',
                 'skill-sim-title', 'skill-sim-desc', 'skill-design-title', 'skill-design-desc',
-                'skill-data-title', 'skill-data-desc', 'skill-safety-title', 'skill-safety-desc',
+                'skill-data-title', 'skill-data-desc', 'skill-safety-title', 'skill-safety-desc', 'skill-general-title', 'skill-general-desc',
                 'edu-degree', 'edu-university', 'edu-period', 'interests-p', 'summary-p'
             ];
             const containerEditableIds = ['training-list', 'work-experience-list', 'key-projects-list'];
