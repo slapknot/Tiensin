@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -52,17 +52,17 @@
             transition: opacity 0.2s ease-in-out;
         }
         
-        /* --- Print-specific Styles for A4 Single Page --- */
+        /* --- Print-specific Styles for Letter Single Page --- */
         @page {
-            size: A4;
-            margin: 0.8cm; /* Minimized margin */
+            size: letter; /* Set page size to Letter */
+            margin: 0.75in; /* Standard margin for Letter */
         }
 
         @media print {
             html, body {
                 width: 100%;
                 height: auto;
-                font-size: 8.5pt; /* Further reduced font size for print */
+                font-size: 9pt; /* Adjusted font size for print */
                 background-color: #ffffff;
                 -webkit-print-color-adjust: exact;
                 color-adjust: exact;
@@ -96,7 +96,7 @@
     </style>
 </head>
 <body class="text-gray-800">
-    <div class="main-container max-w-4xl mx-auto my-4 p-4 sm:p-6 bg-white rounded-lg">
+    <div class="main-container max-w-4xl mx-auto my-4 p-4 sm:p-6 bg-white shadow-lg rounded-lg">
         <!-- Header Section -->
         <header class="flex flex-col md:flex-row items-center justify-between mb-4 border-b pb-3">
             <!-- Profile Picture -->
@@ -113,8 +113,8 @@
             
             <!-- Name and Title -->
             <div class="text-center md:text-right flex-grow">
-                <h1 class="text-3xl md:text-4xl font-bold text-blue-600" contenteditable="true">[Your Name]</h1>
-                <h2 class="text-lg md:text-xl font-semibold text-gray-600" contenteditable="true">Process Engineer</h2>
+                <h1 id="name-h1" class="text-3xl md:text-4xl font-bold text-blue-600" contenteditable="true">[Your Name]</h1>
+                <h2 id="title-h2" class="text-lg md:text-xl font-semibold text-gray-600" contenteditable="true">Process Engineer</h2>
             </div>
         </header>
 
@@ -127,25 +127,36 @@
                     <ul id="contact-list" class="space-y-1.5 text-sm">
                         <li class="flex items-center group deletable-item">
                             <svg class="w-4 h-4 mr-2 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                            <span class="flex-grow" contenteditable="true">[Phone Number]</span>
+                            <span id="contact-phone" class="flex-grow" contenteditable="true">[Phone Number]</span>
                             <button onclick="deleteItem(event)" class="delete-btn ml-2 text-red-500 no-print" title="Delete item"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
                         </li>
                         <li class="flex items-center group deletable-item">
                             <svg class="w-4 h-4 mr-2 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                            <span class="flex-grow" contenteditable="true">[Your Email]</span>
+                            <span id="contact-email" class="flex-grow" contenteditable="true">[Your Email]</span>
                             <button onclick="deleteItem(event)" class="delete-btn ml-2 text-red-500 no-print" title="Delete item"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
                         </li>
                         <li class="flex items-center group deletable-item">
                              <svg class="w-4 h-4 mr-2 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                            <span class="flex-grow" contenteditable="true">[LinkedIn Profile URL]</span>
+                            <span id="contact-linkedin" class="flex-grow" contenteditable="true">[LinkedIn Profile URL]</span>
                             <button onclick="deleteItem(event)" class="delete-btn ml-2 text-red-500 no-print" title="Delete item"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
                         </li>
                         <li class="flex items-start group deletable-item">
                             <svg class="w-4 h-4 mr-2 text-blue-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                            <span class="flex-grow" contenteditable="true">[Your Address]</span>
+                            <span id="contact-address" class="flex-grow" contenteditable="true">[Your Address]</span>
                             <button onclick="deleteItem(event)" class="delete-btn ml-2 text-red-500 no-print" title="Delete item"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
                         </li>
                     </ul>
+                </section>
+                
+                <!-- Personal Information Section -->
+                <section class="mb-4">
+                    <h3 class="text-base font-bold text-blue-600 border-b-2 border-blue-200 pb-1 mb-2">Personal Information</h3>
+                    <div class="space-y-1 text-sm">
+                        <p><strong class="font-semibold">Date of Birth:</strong> <span id="personal-dob" contenteditable="true">[Your DOB]</span></p>
+                        <p><strong class="font-semibold">Age:</strong> <span id="personal-age" contenteditable="true">[Your Age]</span></p>
+                        <p><strong class="font-semibold">Nationality:</strong> <span id="personal-nationality" contenteditable="true">Thai</span></p>
+                        <p><strong class="font-semibold">Languages:</strong> <span id="personal-languages" contenteditable="true">Thai, English</span></p>
+                    </div>
                 </section>
 
                 <!-- Skills -->
@@ -153,20 +164,20 @@
                     <h3 class="text-base font-bold text-blue-600 border-b-2 border-blue-200 pb-1 mb-2">Skills & Abilities</h3>
                     <div class="space-y-1.5 text-sm">
                         <div>
-                            <h4 class="font-semibold" contenteditable="true">Process Simulation</h4>
-                            <p class="text-gray-600" contenteditable="true">Aspen Plus, Aspen Dynamics</p>
+                            <h4 id="skill-sim-title" class="font-semibold" contenteditable="true">Process Simulation</h4>
+                            <p id="skill-sim-desc" class="text-gray-600" contenteditable="true">Aspen Plus, Aspen Dynamics</p>
                         </div>
                         <div>
-                            <h4 class="font-semibold" contenteditable="true">Engineering Design</h4>
-                            <p class="text-gray-600" contenteditable="true">P&ID, AutoCAD, SolidWorks</p>
+                            <h4 id="skill-design-title" class="font-semibold" contenteditable="true">Engineering Design</h4>
+                            <p id="skill-design-desc" class="text-gray-600" contenteditable="true">P&ID, AutoCAD, SolidWorks</p>
                         </div>
                         <div>
-                            <h4 class="font-semibold" contenteditable="true">Data Analysis</h4>
-                            <p class="text-gray-600" contenteditable="true">Minitab (DOE, SPC), Python</p>
+                            <h4 id="skill-data-title" class="font-semibold" contenteditable="true">Data Analysis</h4>
+                            <p id="skill-data-desc" class="text-gray-600" contenteditable="true">Minitab (DOE, SPC), Python</p>
                         </div>
                         <div>
-                            <h4 class="font-semibold" contenteditable="true">Safety & Quality</h4>
-                            <p class="text-gray-600" contenteditable="true">HAZOP, LOPA, PSM, Lean Six Sigma</p>
+                            <h4 id="skill-safety-title" class="font-semibold" contenteditable="true">Safety & Quality</h4>
+                            <p id="skill-safety-desc" class="text-gray-600" contenteditable="true">HAZOP, LOPA, PSM, Lean Six Sigma</p>
                         </div>
                     </div>
                 </section>
@@ -175,35 +186,27 @@
                 <section class="mb-4">
                     <h3 class="text-base font-bold text-blue-600 border-b-2 border-blue-200 pb-1 mb-2">Education</h3>
                     <div class="text-sm">
-                        <p class="font-bold" contenteditable="true">B.Eng. in Chemical Engineering</p>
-                        <p class="text-gray-600" contenteditable="true">King Mongkut's University of Technology Thonburi</p>
-                        <p class="text-gray-500 text-xs" contenteditable="true">2008 – 2012 | GPA: 3.07</p>
+                        <p id="edu-degree" class="font-bold" contenteditable="true">B.Eng. in Chemical Engineering</p>
+                        <p id="edu-university" class="text-gray-600" contenteditable="true">King Mongkut's University of Technology Thonburi</p>
+                        <p id="edu-period" class="text-gray-500 text-xs" contenteditable="true">2008 – 2012 | GPA: 3.07</p>
                     </div>
                 </section>
                 
                 <!-- Training -->
                 <section class="mb-4">
                     <h3 class="text-base font-bold text-blue-600 border-b-2 border-blue-200 pb-1 mb-2">Training & Certifications</h3>
-                    <ul class="space-y-0.5 text-sm list-disc list-inside text-gray-600">
-                        <li contenteditable="true">Lean Six Sigma Green Belt</li>
-                        <li contenteditable="true">Project Management Professional (PMP)</li>
-                        <li contenteditable="true">Certified HAZOP Leader</li>
+                    <ul id="training-list" class="space-y-0.5 text-sm list-disc list-inside text-gray-600" contenteditable="true">
+                        <li>Lean Six Sigma Green Belt</li>
+                        <li>Project Management Professional (PMP)</li>
+                        <li>Certified HAZOP Leader</li>
                     </ul>
                 </section>
 
                 <!-- Interests Section -->
-                <section class="mb-4">
+                <section>
                     <h3 class="text-base font-bold text-blue-600 border-b-2 border-blue-200 pb-1 mb-2">Interests</h3>
                      <div class="text-sm text-gray-700">
-                        <p contenteditable="true">Process Optimization, Sustainable Engineering, Data Science in Manufacturing</p>
-                    </div>
-                </section>
-
-                <!-- Reference Person Section -->
-                <section>
-                    <h3 class="text-base font-bold text-blue-600 border-b-2 border-blue-200 pb-1 mb-2">Reference Person</h3>
-                     <div class="text-sm text-gray-700">
-                        <p contenteditable="true">Available upon request.</p>
+                        <p id="interests-p" contenteditable="true">Process Optimization, Sustainable Engineering, Data Science in Manufacturing</p>
                     </div>
                 </section>
             </aside>
@@ -213,7 +216,7 @@
                 <!-- Professional Summary -->
                 <section class="mb-3">
                     <h3 class="text-lg font-bold text-blue-600 mb-2">Professional Summary</h3>
-                    <p class="text-sm leading-relaxed" contenteditable="true">
+                    <p id="summary-p" class="text-sm leading-relaxed" contenteditable="true">
                         A results-driven and certified Process Engineer with over 12 years of experience in the chemical and polymer industries. Proven expertise in full-cycle project management, process optimization, and enhancing plant safety and efficiency. Adept at leading cross-functional teams to deliver multi-million dollar projects under budget and ahead of schedule.
                     </p>
                 </section>
@@ -222,51 +225,56 @@
                 <section>
                     <h3 class="text-lg font-bold text-blue-600 mb-2">Work Experience</h3>
                     <div id="work-experience-list" class="relative pl-6">
-                        <!-- Timeline Item 1 -->
+                        <!-- Timeline Item 1: Grouped Experience -->
                         <div class="timeline-item relative mb-3 deletable-item">
                             <div class="timeline-line"></div>
                             <div class="bg-slate-50 p-3 rounded-lg shadow-sm relative group">
-                                <p class="font-semibold text-gray-500 text-xs" contenteditable="true">July 2019 – Present</p>
-                                <h4 class="font-bold text-base mt-1" contenteditable="true">Senior Process Design Engineer</h4>
-                                <p class="font-medium text-blue-600 text-sm mt-1 mb-2" contenteditable="true">Bangkok Synthetics (NB Latex Plant)</p>
-                                <ul class="list-disc list-inside space-y-0.5 text-sm text-gray-600" contenteditable="true">
-                                    <li>Led design basis development for NBL Phase 1.5 & 2, contributing to a <strong class="text-blue-700">[Number]</strong> KTA capacity increase.</li>
-                                    <li>Chaired <strong class="text-blue-700">[Number]</strong>+ HAZOP/LOPA sessions, mitigating over <strong class="text-blue-700">[Number]</strong> potential risks.</li>
-                                    <li>Led cost reduction projects saving <strong class="text-blue-700">[$Amount]</strong> annually through process improvements.</li>
-                                    <li>Spearheaded EIA development, achieving approval from IEAT/ONEP within <strong class="text-blue-700">[Timeframe]</strong>.</li>
-                                    <li>Managed commissioning and startup, achieving stable production <strong class="text-blue-700">[X]%</strong> ahead of schedule.</li>
-                                    <li>Coordinated with <strong class="text-blue-700">[Number]</strong> suppliers for utility expansion projects (NG, Steam, etc.).</li>
-                                    <li>Led scale-up for <strong class="text-blue-700">[Number]</strong> new products from pilot to commercial scale.</li>
-                                </ul>
+                                <h4 class="font-bold text-base" contenteditable="true">Bangkok Synthetics (NB Latex Plant)</h4>
+                                <p class="font-medium text-gray-500 text-xs mb-2" contenteditable="true">March 2016 – Present</p>
+                                
+                                <!-- Position 1 -->
+                                <div class="mb-2">
+                                    <p class="font-semibold text-sm" contenteditable="true">Senior Process Design Engineer <span class="font-normal text-gray-500 text-xs">(July 2019 – Present)</span></p>
+                                    <ul class="list-disc list-outside ml-4 space-y-0.5 text-sm text-gray-600" contenteditable="true">
+                                        <li>Developed plant design basis (H&MB, datasheets) for NBL Phase 1.5 & 2 expansion projects.</li>
+                                        <li>Led and scribed in Process Hazard Analysis (HAZOP & LOPA) for new plant designs.</li>
+                                        <li>Performed process simulations for basic design of monomer recovery units for FEED/EPC proposals.</li>
+                                        <li>Developed design basis for Process and Utility systems for the 6,000 MB NBL phase 2 project.</li>
+                                        <li>Conducted engineering reviews for NBL Expansion project with EPC.</li>
+                                        <li>Led Cost Reduction & Process Improvement projects related to Carbon & GHG reduction.</li>
+                                        <li>Led EIA development for process/utility aspects and represented division in clarifications with IEAT/ONEP.</li>
+                                        <li>Coordinated with suppliers for raw material and utility capacity expansion projects (pipelines, NG, N2, steam).</li>
+                                        <li>Participated in pre-commissioning, commissioning, and performance test runs for new facilities.</li>
+                                        <li>Supported NPD team with process scale-up from pilot to commercial plant and conducted cost estimations.</li>
+                                    </ul>
+                                </div>
+
+                                <!-- Position 2 -->
+                                <div>
+                                    <p class="font-semibold text-sm" contenteditable="true">Process Engineer <span class="font-normal text-gray-500 text-xs">(March 2016 – June 2019)</span></p>
+                                    <ul class="list-disc list-outside ml-4 space-y-0.5 text-sm text-gray-600" contenteditable="true">
+                                        <li>Monitored and troubleshooted process problems, including quality and safety issues.</li>
+                                        <li>Guided operation division to optimize process control for quality and capacity improvement.</li>
+                                        <li>Optimized existing facilities for increasing batch size to maximize plant capacity.</li>
+                                    </ul>
+                                </div>
+
                                 <button onclick="deleteItem(event)" class="delete-btn absolute top-1 right-1 text-red-500 no-print" title="Delete item"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
                             </div>
                         </div>
+                        
                         <!-- Timeline Item 2 -->
-                        <div class="timeline-item relative mb-3 deletable-item">
-                            <div class="timeline-line"></div>
-                             <div class="bg-slate-50 p-3 rounded-lg shadow-sm relative group">
-                                <p class="font-semibold text-gray-500 text-xs" contenteditable="true">March 2016 – June 2019</p>
-                                <h4 class="font-bold text-base mt-1" contenteditable="true">Process Engineer</h4>
-                                <p class="font-medium text-blue-600 text-sm mt-1 mb-2" contenteditable="true">Bangkok Synthetics (NB Latex Plant)</p>
-                                <ul class="list-disc list-inside space-y-0.5 text-sm text-gray-600" contenteditable="true">
-                                    <li>Optimized process controls, improving quality and increasing capacity by <strong class="text-blue-700">[X]%</strong>.</li>
-                                    <li>Troubleshot critical process issues, reducing downtime by <strong class="text-blue-700">[Y]%</strong>.</li>
-                                    <li>Optimized facilities to increase batch size, maximizing plant capacity by <strong class="text-blue-700">[Z]</strong> KTA.</li>
-                                </ul>
-                                <button onclick="deleteItem(event)" class="delete-btn absolute top-1 right-1 text-red-500 no-print" title="Delete item"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
-                            </div>
-                        </div>
-                        <!-- Timeline Item 3 -->
                         <div class="timeline-item relative mb-3 deletable-item">
                             <div class="timeline-line"></div>
                             <div class="bg-slate-50 p-3 rounded-lg shadow-sm relative group">
                                 <p class="font-semibold text-gray-500 text-xs" contenteditable="true">October 2012 – February 2016</p>
                                 <h4 class="font-bold text-base mt-1" contenteditable="true">Process Engineer</h4>
                                 <p class="font-medium text-blue-600 text-sm mt-1 mb-2" contenteditable="true">Indorama Polyester PCL (PET Chips-Batch Plant)</p>
-                                <ul class="list-disc list-inside space-y-0.5 text-sm text-gray-600" contenteditable="true">
-                                    <li>Resolved quality non-conformity issues, reducing off-spec product by <strong class="text-blue-700">[X]%</strong>.</li>
-                                    <li>Developed and implemented new SOPs, improving operational safety.</li>
-                                    <li>Managed P&ID modifications and conducted preliminary equipment design.</li>
+                                <ul class="list-disc list-outside ml-4 space-y-0.5 text-sm text-gray-600" contenteditable="true">
+                                    <li>Analyzed and resolved quality non-conformity issues in emergency cases.</li>
+                                    <li>Provided work instructions and standard operating conditions to employees.</li>
+                                    <li>Managed process scheme and P&ID modifications for the batch plant.</li>
+                                    <li>Conducted preliminary design of process equipment and new product trials.</li>
                                 </ul>
                                 <button onclick="deleteItem(event)" class="delete-btn absolute top-1 right-1 text-red-500 no-print" title="Delete item"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
                             </div>
@@ -303,9 +311,60 @@
     </div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Define element IDs for saving ---
+            const simpleEditableIds = [
+                'name-h1', 'title-h2', 'contact-phone', 'contact-email', 'contact-linkedin', 'contact-address',
+                'personal-dob', 'personal-age', 'personal-nationality', 'personal-languages',
+                'skill-sim-title', 'skill-sim-desc', 'skill-design-title', 'skill-design-desc',
+                'skill-data-title', 'skill-data-desc', 'skill-safety-title', 'skill-safety-desc',
+                'edu-degree', 'edu-university', 'edu-period', 'interests-p', 'summary-p'
+            ];
+            const containerEditableIds = ['training-list', 'work-experience-list', 'key-projects-list'];
+
+            // --- Load Content from localStorage ---
+            simpleEditableIds.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    const savedContent = localStorage.getItem(id);
+                    if (savedContent) element.innerHTML = savedContent;
+                }
+            });
+            containerEditableIds.forEach(id => {
+                const container = document.getElementById(id);
+                if (container) {
+                    const savedContent = localStorage.getItem(id);
+                    if (savedContent) container.innerHTML = savedContent;
+                }
+            });
+            const savedImageSrc = localStorage.getItem('profileImageSrc');
+            if (savedImageSrc) document.getElementById('profileImage').src = savedImageSrc;
+
+            // --- Save Content to localStorage on input ---
+            simpleEditableIds.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.addEventListener('input', () => localStorage.setItem(id, element.innerHTML));
+                }
+            });
+            containerEditableIds.forEach(id => {
+                const container = document.getElementById(id);
+                if (container) {
+                    container.addEventListener('input', () => localStorage.setItem(id, container.innerHTML));
+                }
+            });
+        });
+
+        // --- Interactive Functions ---
         function deleteItem(event) {
-            // Find the closest parent with the 'deletable-item' class and remove it
-            event.target.closest('.deletable-item').remove();
+            const item = event.target.closest('.deletable-item');
+            if (item) {
+                const container = item.parentElement;
+                item.remove();
+                if (container && container.id) {
+                     localStorage.setItem(container.id, container.innerHTML);
+                }
+            }
         }
 
         function triggerImageUpload() {
@@ -317,6 +376,7 @@
             reader.onload = function(){
                 const output = document.getElementById('profileImage');
                 output.src = reader.result;
+                localStorage.setItem('profileImageSrc', reader.result);
             };
             if (event.target.files[0]) {
                 reader.readAsDataURL(event.target.files[0]);
@@ -328,10 +388,11 @@
             if (imageUrl) {
                 const output = document.getElementById('profileImage');
                 output.src = imageUrl;
+                localStorage.setItem('profileImageSrc', imageUrl);
                 output.onerror = function() {
                     this.onerror=null;
                     this.src='https://placehold.co/96x96/e0e7ff/3730a3?text=Error';
-                    // Using a simple browser alert as a fallback for this environment
+                    localStorage.removeItem('profileImageSrc');
                     alert('Could not load the image from the URL.');
                 };
             }
@@ -341,11 +402,11 @@
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Enter') {
                 const target = event.target;
-                if (target.closest('ul[contenteditable="true"]')) {
-                    // Prevent default Enter behavior (which might create a <div> or <p>)
+                const list = target.closest('ul[contenteditable="true"]');
+                if (list) {
                     event.preventDefault();
-                    // Insert a new list item
                     document.execCommand('insertHTML', false, '</li><li>');
+                    localStorage.setItem(list.id, list.innerHTML);
                 }
             }
         });
@@ -353,3 +414,4 @@
 
 </body>
 </html>
+
