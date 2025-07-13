@@ -55,7 +55,7 @@
         /* --- Print-specific Styles for Letter Single Page --- */
         @page {
             size: letter; /* Set page size to Letter */
-            margin: 0.65in; /* Further minimized margin */
+            margin: 0.75in; /* Balanced margin */
         }
 
         @media print {
@@ -96,14 +96,14 @@
     </style>
 </head>
 <body class="text-gray-800">
-    <div id="resume-container" class="main-container max-w-5xl mx-auto my-4 p-4 sm:p-6 bg-white shadow-lg rounded-lg">
+    <div id="resume-container" class="main-container max-w-4xl mx-auto my-4 p-4 sm:p-6 bg-white rounded-lg">
         <!-- Header Section -->
-        <header class="flex flex-col md:flex-row items-center justify-between mb-3 border-b pb-2">
+        <header class="flex flex-col md:flex-row items-center justify-between mb-2 border-b pb-2">
             <!-- Profile Picture -->
-            <div class="relative group w-24 h-24 flex-shrink-0 mb-3 md:mb-0 md:mr-5">
-                <img id="profileImage" src="https://placehold.co/96x96/e0e7ff/3730a3?text=Photo" 
+            <div class="relative group w-36 h-36 flex-shrink-0 mb-3 md:mb-0 md:mr-5">
+                <img id="profileImage" src="https://placehold.co/144x144/e0e7ff/3730a3?text=Photo" 
                      alt="Profile Picture" 
-                     class="w-24 h-24 rounded-lg object-cover border-2 border-white shadow-md">
+                     class="w-36 h-36 rounded-lg object-cover border-2 border-white shadow-md">
                 <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center rounded-lg opacity-0 group-hover:opacity-100 transition-opacity no-print">
                     <button onclick="triggerImageUpload()" class="text-white text-xs font-bold bg-black bg-opacity-50 px-2 py-1 rounded mb-1 w-20">Upload File</button>
                     <button onclick="changeImageFromUrl()" class="text-white text-xs font-bold bg-black bg-opacity-50 px-2 py-1 rounded w-20">From URL</button>
