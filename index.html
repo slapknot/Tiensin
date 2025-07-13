@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -62,7 +62,7 @@
             html, body {
                 width: 100%;
                 height: auto;
-                font-size: 9.5pt; /* Slightly smaller font for print */
+                font-size: 9pt; /* Further reduced font size for print */
                 background-color: #ffffff;
                 -webkit-print-color-adjust: exact;
                 color-adjust: exact;
@@ -100,10 +100,16 @@
         <!-- Header Section -->
         <header class="flex flex-col md:flex-row items-center justify-between mb-6 border-b pb-4">
             <!-- Profile Picture -->
-            <img src="https://placehold.co/112x112/e0e7ff/3730a3?text=Photo" 
-                 alt="Profile Picture" 
-                 class="w-28 h-28 rounded-lg object-cover border-4 border-white shadow-md mb-4 md:mb-0 md:mr-6"
-                 onerror="this.onerror=null;this.src='https://placehold.co/112x112/e0e7ff/3730a3?text=Photo';">
+            <div class="relative group w-28 h-28 flex-shrink-0 mb-4 md:mb-0 md:mr-6">
+                <img id="profileImage" src="https://placehold.co/112x112/e0e7ff/3730a3?text=Photo" 
+                     alt="Profile Picture" 
+                     class="w-28 h-28 rounded-lg object-cover border-4 border-white shadow-md">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center rounded-lg opacity-0 group-hover:opacity-100 transition-opacity no-print">
+                    <button onclick="triggerImageUpload()" class="text-white text-xs font-bold bg-black bg-opacity-50 px-2 py-1 rounded mb-1 w-20">Upload File</button>
+                    <button onclick="changeImageFromUrl()" class="text-white text-xs font-bold bg-black bg-opacity-50 px-2 py-1 rounded w-20">From URL</button>
+                    <input type="file" id="imageUpload" class="hidden" accept="image/*" onchange="previewImage(event)">
+                </div>
+            </div>
             
             <!-- Name and Title -->
             <div class="text-center md:text-right flex-grow">
@@ -207,11 +213,14 @@
                                 <p class="font-semibold text-gray-500 text-xs" contenteditable="true">July 2019 – Present</p>
                                 <h4 class="font-bold text-base mt-1" contenteditable="true">Senior Process Design Engineer</h4>
                                 <p class="font-medium text-blue-600 text-sm mt-1 mb-2" contenteditable="true">Bangkok Synthetics (NB Latex Plant)</p>
-                                <ul class="list-disc list-inside space-y-1 text-sm text-gray-600">
-                                    <li contenteditable="true">Managed the <strong>$50M, 6,000 MB NBL Phase 2 project</strong>, delivering 5% under budget and on schedule.</li>
-                                    <li contenteditable="true">Chaired 20+ <strong>HAZOP & LOPA sessions</strong>, mitigating over 150 potential risks to ensure PSM compliance.</li>
-                                    <li contenteditable="true">Engineered a new solvent recovery system, <strong>reducing annual costs by $150,000</strong>.</li>
-                                    <li contenteditable="true">Pioneered dynamic simulation for operator training, <strong>reducing startup errors by 25%</strong>.</li>
+                                <ul class="list-disc list-inside space-y-1 text-sm text-gray-600" contenteditable="true">
+                                    <li>Led design basis development for NBL Phase 1.5 & 2, contributing to a <strong class="text-blue-700">[Number]</strong> KTA capacity increase.</li>
+                                    <li>Chaired <strong class="text-blue-700">[Number]</strong>+ HAZOP/LOPA sessions, mitigating over <strong class="text-blue-700">[Number]</strong> potential risks.</li>
+                                    <li>Led cost reduction projects saving <strong class="text-blue-700">[$Amount]</strong> annually through process improvements.</li>
+                                    <li>Spearheaded EIA development, achieving approval from IEAT/ONEP within <strong class="text-blue-700">[Timeframe]</strong>.</li>
+                                    <li>Managed commissioning and startup, achieving stable production <strong class="text-blue-700">[X]%</strong> ahead of schedule.</li>
+                                    <li>Coordinated with <strong class="text-blue-700">[Number]</strong> suppliers for utility expansion projects (NG, Steam, etc.).</li>
+                                    <li>Led scale-up for <strong class="text-blue-700">[Number]</strong> new products from pilot to commercial scale.</li>
                                 </ul>
                                 <button onclick="deleteItem(event)" class="delete-btn absolute top-1 right-1 text-red-500 no-print" title="Delete item"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
                             </div>
@@ -223,10 +232,10 @@
                                 <p class="font-semibold text-gray-500 text-xs" contenteditable="true">March 2016 – June 2019</p>
                                 <h4 class="font-bold text-base mt-1" contenteditable="true">Process Engineer</h4>
                                 <p class="font-medium text-blue-600 text-sm mt-1 mb-2" contenteditable="true">Bangkok Synthetics (NB Latex Plant)</p>
-                                <ul class="list-disc list-inside space-y-1 text-sm text-gray-600">
-                                    <li contenteditable="true"><strong>Resolved a chronic reactor fouling issue</strong>, increasing uptime by 15% and saving $250,000 annually.</li>
-                                    <li contenteditable="true"><strong>Optimized reactor control logic</strong>, reducing batch cycle time by 10% and increasing plant capacity by 5,000 tons/year.</li>
-                                     <li contenteditable="true">Led a debottlenecking project, <strong>increasing maximum batch size by 20%</strong>.</li>
+                                <ul class="list-disc list-inside space-y-1 text-sm text-gray-600" contenteditable="true">
+                                    <li>Optimized process controls, improving quality and increasing capacity by <strong class="text-blue-700">[X]%</strong>.</li>
+                                    <li>Troubleshot critical process issues, reducing downtime by <strong class="text-blue-700">[Y]%</strong>.</li>
+                                    <li>Optimized facilities to increase batch size, maximizing plant capacity by <strong class="text-blue-700">[Z]</strong> KTA.</li>
                                 </ul>
                                 <button onclick="deleteItem(event)" class="delete-btn absolute top-1 right-1 text-red-500 no-print" title="Delete item"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
                             </div>
@@ -238,9 +247,10 @@
                                 <p class="font-semibold text-gray-500 text-xs" contenteditable="true">October 2012 – February 2016</p>
                                 <h4 class="font-bold text-base mt-1" contenteditable="true">Process Engineer</h4>
                                 <p class="font-medium text-blue-600 text-sm mt-1 mb-2" contenteditable="true">Indorama Polyester PCL (PET Chips-Batch Plant)</p>
-                                <ul class="list-disc list-inside space-y-1 text-sm text-gray-600">
-                                    <li contenteditable="true">Implemented a new dosing strategy that <strong>reduced off-spec product by 90%</strong>.</li>
-                                    <li contenteditable="true">Developed new SOPs, contributing to a <strong>30% reduction in minor safety incidents</strong>.</li>
+                                <ul class="list-disc list-inside space-y-1 text-sm text-gray-600" contenteditable="true">
+                                    <li>Resolved quality non-conformity issues, reducing off-spec product by <strong class="text-blue-700">[X]%</strong>.</li>
+                                    <li>Developed and implemented new SOPs, improving operational safety.</li>
+                                    <li>Managed P&ID modifications and conducted preliminary equipment design.</li>
                                 </ul>
                                 <button onclick="deleteItem(event)" class="delete-btn absolute top-1 right-1 text-red-500 no-print" title="Delete item"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
                             </div>
@@ -288,6 +298,35 @@
         function deleteItem(event) {
             // Find the closest parent with the 'deletable-item' class and remove it
             event.target.closest('.deletable-item').remove();
+        }
+
+        function triggerImageUpload() {
+            document.getElementById('imageUpload').click();
+        }
+
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function(){
+                const output = document.getElementById('profileImage');
+                output.src = reader.result;
+            };
+            if (event.target.files[0]) {
+                reader.readAsDataURL(event.target.files[0]);
+            }
+        }
+        
+        function changeImageFromUrl() {
+            const imageUrl = prompt("Please enter the URL of the image:");
+            if (imageUrl) {
+                const output = document.getElementById('profileImage');
+                output.src = imageUrl;
+                output.onerror = function() {
+                    this.onerror=null;
+                    this.src='https://placehold.co/112x112/e0e7ff/3730a3?text=Error';
+                    // Using a simple browser alert as a fallback for this environment
+                    alert('Could not load the image from the URL.');
+                };
+            }
         }
     </script>
 
