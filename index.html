@@ -55,7 +55,7 @@
         /* --- Print-specific Styles for Letter Single Page --- */
         @page {
             size: letter; /* Set page size to Letter */
-            margin: 0.75in; /* Standard margin for Letter */
+            margin: 0.7in; /* Optimized margin for Letter */
         }
 
         @media print {
@@ -63,7 +63,7 @@
                 width: 100%;
                 height: auto;
                 font-size: 9pt; /* Adjusted font size for print */
-                background-color: #ffffff;
+                background-color: #ffffff !important;
                 -webkit-print-color-adjust: exact;
                 color-adjust: exact;
             }
@@ -72,14 +72,14 @@
                 width: 100%;
                 margin: 0;
                 padding: 0;
-                box-shadow: none;
+                box-shadow: none !important;
                 border: none;
             }
             .page-break {
                 break-after: avoid; /* Avoid breaking pages */
             }
             .shadow-lg, .shadow-md, .shadow-sm {
-                box-shadow: none;
+                box-shadow: none !important;
             }
             .bg-slate-50 {
                 background-color: #f9fafb !important;
@@ -90,13 +90,13 @@
                 background-color: transparent;
             }
             .no-print {
-                display: none;
+                display: none !important;
             }
         }
     </style>
 </head>
 <body class="text-gray-800">
-    <div class="main-container max-w-4xl mx-auto my-4 p-4 sm:p-6 bg-white shadow-lg rounded-lg">
+    <div id="resume-container" class="main-container max-w-4xl mx-auto my-4 p-4 sm:p-6 bg-white shadow-lg rounded-lg">
         <!-- Header Section -->
         <header class="flex flex-col md:flex-row items-center justify-between mb-4 border-b pb-3">
             <!-- Profile Picture -->
@@ -113,8 +113,8 @@
             
             <!-- Name and Title -->
             <div class="text-center md:text-right flex-grow">
-                <h1 id="name-h1" class="text-3xl md:text-4xl font-bold text-blue-600" contenteditable="true">[Your Name]</h1>
-                <h2 id="title-h2" class="text-lg md:text-xl font-semibold text-gray-600" contenteditable="true">Process Engineer</h2>
+                <h1 id="name-h1" class="text-3xl md:text-4xl font-bold text-blue-600" contenteditable="true">Tiensin Boontaweesong</h1>
+                <h2 id="title-h2" class="text-lg md:text-xl font-semibold text-gray-600" contenteditable="true">Nickname : Not</h2>
             </div>
         </header>
 
@@ -127,17 +127,17 @@
                     <ul id="contact-list" class="space-y-1 text-sm">
                         <li class="flex items-center group deletable-item">
                             <svg class="w-4 h-4 mr-2 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                            <span id="contact-phone" class="flex-grow" contenteditable="true">[Phone Number]</span>
+                            <span id="contact-phone" class="flex-grow" contenteditable="true">083-297-4656</span>
                             <button onclick="deleteItem(event)" class="delete-btn ml-2 text-red-500 no-print" title="Delete item"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
                         </li>
                         <li class="flex items-center group deletable-item">
                             <svg class="w-4 h-4 mr-2 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                            <span id="contact-email" class="flex-grow" contenteditable="true">[Your Email]</span>
+                            <span id="contact-email" class="flex-grow" contenteditable="true">Tiensin.b@gmail.com</span>
                             <button onclick="deleteItem(event)" class="delete-btn ml-2 text-red-500 no-print" title="Delete item"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
                         </li>
                         <li class="flex items-start group deletable-item">
                             <svg class="w-4 h-4 mr-2 text-blue-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                            <span id="contact-address" class="flex-grow" contenteditable="true">[Your Address]</span>
+                            <span id="contact-address" class="flex-grow" contenteditable="true">9/197 Songprapa rd., Seekan, Donmuang, Bangkok</span>
                             <button onclick="deleteItem(event)" class="delete-btn ml-2 text-red-500 no-print" title="Delete item"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
                         </li>
                     </ul>
@@ -147,10 +147,10 @@
                 <section class="mb-3">
                     <h3 class="text-base font-bold text-blue-600 border-b-2 border-blue-200 pb-1 mb-2">Personal Information</h3>
                     <div class="space-y-1 text-sm">
-                        <p><strong class="font-semibold">Date of Birth:</strong> <span id="personal-dob" contenteditable="true">[Your DOB]</span></p>
-                        <p><strong class="font-semibold">Age:</strong> <span id="personal-age" contenteditable="true">[Your Age]</span></p>
+                        <p><strong class="font-semibold">Date of Birth:</strong> <span id="personal-dob" contenteditable="true">9 January 1990</span></p>
+                        <p><strong class="font-semibold">Age:</strong> <span id="personal-age" contenteditable="true">35</span></p>
                         <p><strong class="font-semibold">Nationality:</strong> <span id="personal-nationality" contenteditable="true">Thai</span></p>
-                        <p><strong class="font-semibold">Languages:</strong> <span id="personal-languages" contenteditable="true">Thai, English</span></p>
+                        <p><strong class="font-semibold">Languages:</strong> <span id="personal-languages" contenteditable="true">Thai, English TOEIC 770</span></p>
                     </div>
                 </section>
 
@@ -170,23 +170,23 @@
                     <div class="space-y-1 text-sm">
                         <div>
                             <h4 id="skill-sim-title" class="font-semibold" contenteditable="true">Process Simulation</h4>
-                            <p id="skill-sim-desc" class="text-gray-600" contenteditable="true">Aspen Plus, Aspen Dynamics</p>
+                            <p id="skill-sim-desc" class="text-gray-600" contenteditable="true">Aspen Packages, Aspen Hysys</p>
                         </div>
                         <div>
                             <h4 id="skill-design-title" class="font-semibold" contenteditable="true">Engineering Design</h4>
-                            <p id="skill-design-desc" class="text-gray-600" contenteditable="true">P&ID, AutoCAD, SolidWorks</p>
+                            <p id="skill-design-desc" class="text-gray-600" contenteditable="true">P&ID, PFD</p>
                         </div>
                         <div>
                             <h4 id="skill-data-title" class="font-semibold" contenteditable="true">Data Analysis</h4>
-                            <p id="skill-data-desc" class="text-gray-600" contenteditable="true">Minitab (DOE, SPC), Python</p>
+                            <p id="skill-data-desc" class="text-gray-600" contenteditable="true">Minitab, Excel</p>
                         </div>
                         <div>
                             <h4 id="skill-safety-title" class="font-semibold" contenteditable="true">Safety & Quality</h4>
-                            <p id="skill-safety-desc" class="text-gray-600" contenteditable="true">HAZOP, LOPA, PSM, Lean Six Sigma</p>
+                            <p id="skill-safety-desc" class="text-gray-600" contenteditable="true">PHA PRO (HAZOP, LOPA), Phast (consequence analysis)</p>
                         </div>
                          <div>
                             <h4 id="skill-general-title" class="font-semibold" contenteditable="true">General Software</h4>
-                            <p id="skill-general-desc" class="text-gray-600" contenteditable="true">MS Office Suite, SAP</p>
+                            <p id="skill-general-desc" class="text-gray-600" contenteditable="true">MS Office (Excel, Word, PowerPoint), ORACLE</p>
                         </div>
                     </div>
                 </section>
@@ -196,16 +196,21 @@
                     <h3 class="text-base font-bold text-blue-600 border-b-2 border-blue-200 pb-1 mb-2">Training & Certifications</h3>
                     <ul id="training-list" class="space-y-px text-sm list-disc list-inside text-gray-600" contenteditable="true">
                         <li>Lean Six Sigma Green Belt</li>
-                        <li>Project Management Professional (PMP)</li>
                         <li>Certified HAZOP Leader</li>
+                        <li>Process Safety Management</li>
+                        <li>Technical fire fighting</li>
+                        <li>Confined space</li>
+                        <li>ISO9001&14000</li>
+                        <li>Water Pollution Control System Supervisor</li>
                     </ul>
                 </section>
 
                 <!-- Interests Section -->
                 <section>
                     <h3 class="text-base font-bold text-blue-600 border-b-2 border-blue-200 pb-1 mb-2">Interests</h3>
-                     <div class="text-sm text-gray-700">
-                        <p id="interests-p" contenteditable="true">Process Optimization, Sustainable Engineering, Data Science in Manufacturing</p>
+                     <div id="interests-p" class="text-sm text-gray-700" contenteditable="true">
+                        <p><b>Work related:</b> Process Optimization, Sustainable Engineering, Plant Technology</p>
+                        <p><b>Hobby:</b> Table tennis, Badminton, Music, Specialty coffee, Buffet.</p>
                     </div>
                 </section>
             </aside>
@@ -237,27 +242,26 @@
                                 <!-- Position 1 -->
                                 <div class="mb-2">
                                     <p class="font-semibold text-sm" contenteditable="true">Senior Process Design Engineer <span class="font-normal text-gray-500 text-xs">(July 2019 – Present)</span></p>
-                                    <ul class="list-disc list-outside ml-4 space-y-px text-xs text-gray-600" contenteditable="true">
-                                        <li>Developed plant design basis (H&MB, datasheets) for NBL Phase 1.5 & 2 expansion projects.</li>
-                                        <li>Led and scribed in Process Hazard Analysis (HAZOP & LOPA) for new plant designs.</li>
-                                        <li>Performed process simulations for basic design of monomer recovery units for FEED/EPC proposals.</li>
-                                        <li>Developed design basis for Process and Utility systems for the 6,000 MB NBL phase 2 project.</li>
-                                        <li>Conducted engineering reviews for NBL Expansion project with EPC.</li>
-                                        <li>Led Cost Reduction & Process Improvement projects related to Carbon & GHG reduction.</li>
-                                        <li>Led EIA development for process/utility aspects and represented division in clarifications with IEAT/ONEP.</li>
-                                        <li>Coordinated with suppliers for raw material and utility capacity expansion projects (pipelines, NG, N2, steam).</li>
-                                        <li>Participated in pre-commissioning, commissioning, and performance test runs for new facilities.</li>
-                                        <li>Supported NPD team with process scale-up from pilot to commercial plant and conducted cost estimations.</li>
+                                    <ul class="list-disc list-outside ml-4 space-y-px text-sm text-gray-600" contenteditable="true">
+                                        <li>Developed <strong>plant design basis packages</strong> (H&MB, datasheets) for NBL Phase 1.5 & 2 expansion projects.</li>
+                                        <li>Lead and Coach for <strong>Process Hazard Analysis (HAZOP & LOPA)</strong> for new plant designs.</li>
+                                        <li>Performed <strong>process simulations</strong> for basic design of recovery units (Distillation) and Utility units for FEED/EPC bidding proposals.</li>
+                                        <li>Conducted <strong>engineering reviews</strong> for NBL Expansion project with FEED/EPC contractor.</li>
+                                        <li>Participated in <strong>pre-commissioning, commissioning, and performance test runs</strong> for new facilities with EPC, plant's operation and related teams.</li>
+                                        <li>Lead <strong>Cost Reduction & Process Improvement</strong> projects related to Carbon & GHG reduction following GHG reduction road map.</li>
+                                        <li>Lead <strong>EIA development</strong> for process/utility aspects on modification or expansion project and represented for process division in clarifications with IEAT/ONEP committee.</li>
+                                        <li>Coordinated with suppliers for <strong>raw material and utility capacity expansion</strong> projects (pipelines, NG, N2, steam).</li>
+                                        <li>Team member of <strong>new product development (NPD)</strong> for process scale-up from pilot to commercial plant conducting cost estimations, recipe modification, and plant modification.</li>
                                     </ul>
                                 </div>
 
                                 <!-- Position 2 -->
                                 <div>
                                     <p class="font-semibold text-sm" contenteditable="true">Process Engineer <span class="font-normal text-gray-500 text-xs">(March 2016 – June 2019)</span></p>
-                                    <ul class="list-disc list-outside ml-4 space-y-px text-xs text-gray-600" contenteditable="true">
-                                        <li>Monitored and troubleshooted process problems, including quality and safety issues.</li>
-                                        <li>Guided operation division to optimize process control for quality and capacity improvement.</li>
-                                        <li>Optimized existing facilities for increasing batch size to maximize plant capacity.</li>
+                                    <ul class="list-disc list-outside ml-4 space-y-px text-sm text-gray-600" contenteditable="true">
+                                        <li><strong>Monitored and troubleshooted</strong> process problems, including quality and safety issues.</li>
+                                        <li><strong>Process optimization</strong> and Recipe design for Quality and Productivity improvement.</li>
+                                        <li>Optimized existing facilities for <strong>increasing batch size</strong> to maximize plant capacity.</li>
                                     </ul>
                                 </div>
 
@@ -272,11 +276,11 @@
                                 <h4 class="font-bold text-base" contenteditable="true">Indorama Polyester PCL (PET Chips-Batch Plant)</h4>
                                 <p class="font-medium text-blue-600 text-xs mb-2" contenteditable="true">October 2012 – February 2016</p>
                                 <p class="font-semibold text-sm" contenteditable="true">Process Engineer</p>
-                                <ul class="list-disc list-outside ml-4 space-y-px text-xs text-gray-600 mt-1" contenteditable="true">
-                                    <li>Analyzed and resolved quality non-conformity issues in emergency cases.</li>
-                                    <li>Provided work instructions and standard operating conditions to employees.</li>
-                                    <li>Managed process scheme and P&ID modifications for the batch plant.</li>
-                                    <li>Conducted preliminary design of process equipment and new product trials.</li>
+                                <ul class="list-disc list-outside ml-4 space-y-px text-sm text-gray-600 mt-1" contenteditable="true">
+                                    <li><strong>Analyzed and resolved quality non-conformity issues</strong> in emergency cases.</li>
+                                    <li>Provided <strong>work instructions and standard operating conditions</strong> to employees.</li>
+                                    <li>Managed <strong>process scheme and P&ID modifications</strong> for the batch plant.</li>
+                                    <li>Conducted <strong>preliminary design</strong> of process equipment and new product trials.</li>
                                 </ul>
                                 <button onclick="deleteItem(event)" class="delete-btn absolute top-1 right-1 text-red-500 no-print" title="Delete item"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
                             </div>
@@ -290,12 +294,12 @@
                     <div id="key-projects-list" class="space-y-2">
                         <div class="bg-slate-50 p-3 rounded-lg shadow-sm relative group deletable-item">
                             <h4 class="font-bold text-base" contenteditable="true">NBL Phase 2 Capacity Expansion</h4>
-                            <p class="text-gray-600 mt-1 text-sm" contenteditable="true">Managed the full project lifecycle for a 6,000 MB capacity expansion, from initial design and HAZOP studies to successful commissioning and performance testing.</p>
+                            <p class="text-gray-600 mt-1 text-sm" contenteditable="true">Managed the full project life cycle for a 6,000 million Baht capacity expansion as per Plant's owner in Process discipline from initial design, HAZOP studies, FEED and EPC engineering, and Construction to successful commissioning and performance testing.</p>
                              <button onclick="deleteItem(event)" class="delete-btn absolute top-1 right-1 text-red-500 no-print" title="Delete item"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
                         </div>
                         <div class="bg-slate-50 p-3 rounded-lg shadow-sm relative group deletable-item">
                             <h4 class="font-bold text-base" contenteditable="true">Cost Reduction Initiative</h4>
-                            <p class="text-gray-600 mt-1 text-sm" contenteditable="true">Led a process optimization project that identified and implemented changes to reduce utility consumption and raw material waste, resulting in annual savings of over $200,000.</p>
+                            <p class="text-gray-600 mt-1 text-sm" contenteditable="true">Lead a process optimization project that identified and implemented changes to reduce utility consumption and raw material waste, resulting in annual savings of over $100,000 as of Y-2024 projects</p>
                              <button onclick="deleteItem(event)" class="delete-btn absolute top-1 right-1 text-red-500 no-print" title="Delete item"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
                         </div>
                     </div>
@@ -343,16 +347,15 @@
             if (savedImageSrc) document.getElementById('profileImage').src = savedImageSrc;
 
             // --- Save Content to localStorage on input ---
-            simpleEditableIds.forEach(id => {
-                const element = document.getElementById(id);
-                if (element) {
-                    element.addEventListener('input', () => localStorage.setItem(id, element.innerHTML));
+            const mainContainer = document.getElementById('resume-container');
+            mainContainer.addEventListener('input', (event) => {
+                const target = event.target;
+                if(target.id){
+                    localStorage.setItem(target.id, target.innerHTML);
                 }
-            });
-            containerEditableIds.forEach(id => {
-                const container = document.getElementById(id);
-                if (container) {
-                    container.addEventListener('input', () => localStorage.setItem(id, container.innerHTML));
+                const container = target.closest('ul, div[id]');
+                 if (container && container.id) {
+                    localStorage.setItem(container.id, container.innerHTML);
                 }
             });
         });
@@ -416,3 +419,4 @@
 
 </body>
 </html>
+
