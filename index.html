@@ -55,14 +55,14 @@
         /* --- Print-specific Styles for Letter Single Page --- */
         @page {
             size: letter; /* Set page size to Letter */
-            margin: 0.7in; /* Optimized margin for Letter */
+            margin: 0.65in; /* Further minimized margin */
         }
 
         @media print {
             html, body {
                 width: 100%;
                 height: auto;
-                font-size: 9pt; /* Adjusted font size for print */
+                font-size: 8.5pt; /* Further reduced font size for print */
                 background-color: #ffffff !important;
                 -webkit-print-color-adjust: exact;
                 color-adjust: exact;
@@ -96,9 +96,9 @@
     </style>
 </head>
 <body class="text-gray-800">
-    <div id="resume-container" class="main-container max-w-4xl mx-auto my-4 p-4 sm:p-6 bg-white shadow-lg rounded-lg">
+    <div id="resume-container" class="main-container max-w-5xl mx-auto my-4 p-4 sm:p-6 bg-white shadow-lg rounded-lg">
         <!-- Header Section -->
-        <header class="flex flex-col md:flex-row items-center justify-between mb-4 border-b pb-3">
+        <header class="flex flex-col md:flex-row items-center justify-between mb-3 border-b pb-2">
             <!-- Profile Picture -->
             <div class="relative group w-24 h-24 flex-shrink-0 mb-3 md:mb-0 md:mr-5">
                 <img id="profileImage" src="https://placehold.co/96x96/e0e7ff/3730a3?text=Photo" 
@@ -118,11 +118,11 @@
             </div>
         </header>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <!-- Left Column (Sidebar) -->
-            <aside class="md:col-span-1 md:border-r md:pr-5">
+            <aside class="md:col-span-1 md:border-r md:pr-4">
                 <!-- Contact Info -->
-                <section class="mb-3">
+                <section class="mb-2">
                     <h3 class="text-base font-bold text-blue-600 border-b-2 border-blue-200 pb-1 mb-2">Contact Information</h3>
                     <ul id="contact-list" class="space-y-1 text-sm">
                         <li class="flex items-center group deletable-item">
@@ -144,7 +144,7 @@
                 </section>
                 
                 <!-- Personal Information Section -->
-                <section class="mb-3">
+                <section class="mb-2">
                     <h3 class="text-base font-bold text-blue-600 border-b-2 border-blue-200 pb-1 mb-2">Personal Information</h3>
                     <div class="space-y-1 text-sm">
                         <p><strong class="font-semibold">Date of Birth:</strong> <span id="personal-dob" contenteditable="true">9 January 1990</span></p>
@@ -155,7 +155,7 @@
                 </section>
 
                 <!-- Education -->
-                <section class="mb-3">
+                <section class="mb-2">
                     <h3 class="text-base font-bold text-blue-600 border-b-2 border-blue-200 pb-1 mb-2">Education</h3>
                     <div class="text-sm">
                         <p id="edu-degree" class="font-bold" contenteditable="true">B.Eng. in Chemical Engineering</p>
@@ -165,7 +165,7 @@
                 </section>
                 
                 <!-- Skills -->
-                <section class="mb-3">
+                <section class="mb-2">
                     <h3 class="text-base font-bold text-blue-600 border-b-2 border-blue-200 pb-1 mb-2">Skills & Abilities</h3>
                     <div class="space-y-1 text-sm">
                         <div>
@@ -192,7 +192,7 @@
                 </section>
 
                 <!-- Training -->
-                <section class="mb-3">
+                <section class="mb-2">
                     <h3 class="text-base font-bold text-blue-600 border-b-2 border-blue-200 pb-1 mb-2">Training & Certifications</h3>
                     <ul id="training-list" class="space-y-px text-sm list-disc list-inside text-gray-600" contenteditable="true">
                         <li>Lean Six Sigma Green Belt</li>
@@ -219,7 +219,7 @@
             <main class="md:col-span-2">
                 <!-- Professional Summary -->
                 <section class="mb-3">
-                    <h3 class="text-lg font-bold text-blue-600 mb-2">Professional Summary</h3>
+                    <h3 class="text-lg font-bold text-blue-600 mb-1">Professional Summary</h3>
                     <p id="summary-p" class="text-sm leading-relaxed" contenteditable="true">
                         A results-driven and certified Process Engineer with over 12 years of experience in the chemical and polymer industries. Proven expertise in full-cycle project management, process optimization, and enhancing plant safety and efficiency. Adept at leading cross-functional teams to deliver multi-million dollar projects under budget and ahead of schedule.
                     </p>
@@ -233,7 +233,7 @@
                     </div>
                     <div id="work-experience-list" class="relative pl-6">
                         <!-- Timeline Item 1: Grouped Experience -->
-                        <div class="timeline-item relative mb-3 deletable-item">
+                        <div class="timeline-item relative mb-2 deletable-item">
                             <div class="timeline-line"></div>
                             <div class="bg-slate-50 p-3 rounded-lg shadow-sm relative group">
                                 <h4 class="font-bold text-base" contenteditable="true">Bangkok Synthetics (NB Latex Plant)</h4>
@@ -242,7 +242,7 @@
                                 <!-- Position 1 -->
                                 <div class="mb-2">
                                     <p class="font-semibold text-sm" contenteditable="true">Senior Process Design Engineer <span class="font-normal text-gray-500 text-xs">(July 2019 – Present)</span></p>
-                                    <ul class="list-disc list-outside ml-4 space-y-px text-sm text-gray-600" contenteditable="true">
+                                    <ul class="list-disc list-outside ml-4 space-y-px text-xs text-gray-600" contenteditable="true">
                                         <li>Developed <strong>plant design basis packages</strong> (H&MB, datasheets) for NBL Phase 1.5 & 2 expansion projects.</li>
                                         <li>Lead and Coach for <strong>Process Hazard Analysis (HAZOP & LOPA)</strong> for new plant designs.</li>
                                         <li>Performed <strong>process simulations</strong> for basic design of recovery units (Distillation) and Utility units for FEED/EPC bidding proposals.</li>
@@ -258,7 +258,7 @@
                                 <!-- Position 2 -->
                                 <div>
                                     <p class="font-semibold text-sm" contenteditable="true">Process Engineer <span class="font-normal text-gray-500 text-xs">(March 2016 – June 2019)</span></p>
-                                    <ul class="list-disc list-outside ml-4 space-y-px text-sm text-gray-600" contenteditable="true">
+                                    <ul class="list-disc list-outside ml-4 space-y-px text-xs text-gray-600" contenteditable="true">
                                         <li><strong>Monitored and troubleshooted</strong> process problems, including quality and safety issues.</li>
                                         <li><strong>Process optimization</strong> and Recipe design for Quality and Productivity improvement.</li>
                                         <li>Optimized existing facilities for <strong>increasing batch size</strong> to maximize plant capacity.</li>
@@ -270,13 +270,13 @@
                         </div>
                         
                         <!-- Timeline Item 2 -->
-                        <div class="timeline-item relative mb-3 deletable-item">
+                        <div class="timeline-item relative mb-2 deletable-item">
                             <div class="timeline-line"></div>
                             <div class="bg-slate-50 p-3 rounded-lg shadow-sm relative group">
                                 <h4 class="font-bold text-base" contenteditable="true">Indorama Polyester PCL (PET Chips-Batch Plant)</h4>
                                 <p class="font-medium text-blue-600 text-xs mb-2" contenteditable="true">October 2012 – February 2016</p>
                                 <p class="font-semibold text-sm" contenteditable="true">Process Engineer</p>
-                                <ul class="list-disc list-outside ml-4 space-y-px text-sm text-gray-600 mt-1" contenteditable="true">
+                                <ul class="list-disc list-outside ml-4 space-y-px text-xs text-gray-600 mt-1" contenteditable="true">
                                     <li><strong>Analyzed and resolved quality non-conformity issues</strong> in emergency cases.</li>
                                     <li>Provided <strong>work instructions and standard operating conditions</strong> to employees.</li>
                                     <li>Managed <strong>process scheme and P&ID modifications</strong> for the batch plant.</li>
@@ -294,12 +294,12 @@
                     <div id="key-projects-list" class="space-y-2">
                         <div class="bg-slate-50 p-3 rounded-lg shadow-sm relative group deletable-item">
                             <h4 class="font-bold text-base" contenteditable="true">NBL Phase 2 Capacity Expansion</h4>
-                            <p class="text-gray-600 mt-1 text-sm" contenteditable="true">Managed the full project life cycle for a 6,000 million Baht capacity expansion as per Plant's owner in Process discipline from initial design, HAZOP studies, FEED and EPC engineering, and Construction to successful commissioning and performance testing.</p>
+                            <p class="text-gray-600 mt-1 text-xs" contenteditable="true">Managed the full project life cycle for a 6,000 million Baht capacity expansion as per Plant's owner in Process discipline from initial design, HAZOP studies, FEED and EPC engineering, and Construction to successful commissioning and performance testing.</p>
                              <button onclick="deleteItem(event)" class="delete-btn absolute top-1 right-1 text-red-500 no-print" title="Delete item"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
                         </div>
                         <div class="bg-slate-50 p-3 rounded-lg shadow-sm relative group deletable-item">
                             <h4 class="font-bold text-base" contenteditable="true">Cost Reduction Initiative</h4>
-                            <p class="text-gray-600 mt-1 text-sm" contenteditable="true">Lead a process optimization project that identified and implemented changes to reduce utility consumption and raw material waste, resulting in annual savings of over $100,000 as of Y-2024 projects</p>
+                            <p class="text-gray-600 mt-1 text-xs" contenteditable="true">Lead a process optimization project that identified and implemented changes to reduce utility consumption and raw material waste, resulting in annual savings of over $100,000 as of Y-2024 projects</p>
                              <button onclick="deleteItem(event)" class="delete-btn absolute top-1 right-1 text-red-500 no-print" title="Delete item"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
                         </div>
                     </div>
@@ -419,4 +419,3 @@
 
 </body>
 </html>
-
