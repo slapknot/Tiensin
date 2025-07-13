@@ -11,7 +11,7 @@
     <style>
         body {
             font-family: 'Inter', 'Sarabun', sans-serif;
-            background-color: #f8fafc;
+            background-color: #f0f2f5; /* Slightly darker background to make the white page pop */
         }
         .timeline-item::before {
             content: '';
@@ -55,7 +55,7 @@
         /* --- Print-specific Styles for A4 Single Page --- */
         @page {
             size: A4;
-            margin: 1.2cm; /* Reduced margin for more space */
+            margin: 0.8cm; /* Minimized margin */
         }
 
         @media print {
@@ -96,7 +96,7 @@
     </style>
 </head>
 <body class="text-gray-800">
-    <div class="main-container max-w-4xl mx-auto my-4 p-4 sm:p-6 bg-white shadow-lg rounded-lg">
+    <div class="main-container max-w-4xl mx-auto my-4 p-4 sm:p-6 bg-white rounded-lg">
         <!-- Header Section -->
         <header class="flex flex-col md:flex-row items-center justify-between mb-4 border-b pb-3">
             <!-- Profile Picture -->
@@ -191,6 +191,14 @@
                     </ul>
                 </section>
 
+                <!-- Interests Section -->
+                <section class="mb-4">
+                    <h3 class="text-base font-bold text-blue-600 border-b-2 border-blue-200 pb-1 mb-2">Interests</h3>
+                     <div class="text-sm text-gray-700">
+                        <p contenteditable="true">Process Optimization, Sustainable Engineering, Data Science in Manufacturing</p>
+                    </div>
+                </section>
+
                 <!-- Reference Person Section -->
                 <section>
                     <h3 class="text-base font-bold text-blue-600 border-b-2 border-blue-200 pb-1 mb-2">Reference Person</h3>
@@ -203,7 +211,7 @@
             <!-- Right Column (Main Content) -->
             <main class="md:col-span-2">
                 <!-- Professional Summary -->
-                <section class="mb-4">
+                <section class="mb-3">
                     <h3 class="text-lg font-bold text-blue-600 mb-2">Professional Summary</h3>
                     <p class="text-sm leading-relaxed" contenteditable="true">
                         A results-driven and certified Process Engineer with over 12 years of experience in the chemical and polymer industries. Proven expertise in full-cycle project management, process optimization, and enhancing plant safety and efficiency. Adept at leading cross-functional teams to deliver multi-million dollar projects under budget and ahead of schedule.
@@ -212,10 +220,10 @@
 
                 <!-- Work Experience -->
                 <section>
-                    <h3 class="text-lg font-bold text-blue-600 mb-3">Work Experience</h3>
+                    <h3 class="text-lg font-bold text-blue-600 mb-2">Work Experience</h3>
                     <div id="work-experience-list" class="relative pl-6">
                         <!-- Timeline Item 1 -->
-                        <div class="timeline-item relative mb-4 deletable-item">
+                        <div class="timeline-item relative mb-3 deletable-item">
                             <div class="timeline-line"></div>
                             <div class="bg-slate-50 p-3 rounded-lg shadow-sm relative group">
                                 <p class="font-semibold text-gray-500 text-xs" contenteditable="true">July 2019 – Present</p>
@@ -234,7 +242,7 @@
                             </div>
                         </div>
                         <!-- Timeline Item 2 -->
-                        <div class="timeline-item relative mb-4 deletable-item">
+                        <div class="timeline-item relative mb-3 deletable-item">
                             <div class="timeline-line"></div>
                              <div class="bg-slate-50 p-3 rounded-lg shadow-sm relative group">
                                 <p class="font-semibold text-gray-500 text-xs" contenteditable="true">March 2016 – June 2019</p>
@@ -249,7 +257,7 @@
                             </div>
                         </div>
                         <!-- Timeline Item 3 -->
-                        <div class="timeline-item relative mb-4 deletable-item">
+                        <div class="timeline-item relative mb-3 deletable-item">
                             <div class="timeline-line"></div>
                             <div class="bg-slate-50 p-3 rounded-lg shadow-sm relative group">
                                 <p class="font-semibold text-gray-500 text-xs" contenteditable="true">October 2012 – February 2016</p>
@@ -267,7 +275,7 @@
                 </section>
 
                 <!-- Key Projects Section -->
-                <section class="mt-4">
+                <section class="mt-3">
                     <h3 class="text-lg font-bold text-blue-600 mb-2">Key Projects</h3>
                     <div id="key-projects-list" class="space-y-2">
                         <div class="bg-slate-50 p-3 rounded-lg shadow-sm relative group deletable-item">
